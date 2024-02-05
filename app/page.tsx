@@ -71,7 +71,6 @@ export default function Home() {
   }, []); // Run effect only once on mount
 
   return (
-    <TerminalContextProvider>
       <main className=" objectthin  max-w-screen flex flex-col gap-0">
         <div className="bg h-screen w-screen fixed" />
         <div className="lines h-screen w-screen fixed" />
@@ -191,6 +190,5 @@ export default function Home() {
           </div>
         </section>
       </main>
-    </TerminalContextProvider>
   );
 }

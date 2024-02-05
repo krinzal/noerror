@@ -4,10 +4,9 @@ import Terminal, {
   TerminalInput,
   TerminalOutput,
 } from "react-terminal-ui";
-import { useRouter } from "next/navigation";
+import { redirect } from 'next/navigation';
 
 const TerminalController = (props = {}) => {
-  const router = useRouter();
   const [colorMode, setColorMode] = useState(ColorMode.Dark);
   const [lineData, setLineData] = useState([
     <TerminalOutput>Welcome to the help terminal!&#128075;</TerminalOutput>,
@@ -28,9 +27,9 @@ const TerminalController = (props = {}) => {
     let ld = [...lineData];
     ld.push(<TerminalInput>{input}</TerminalInput>);
     if (input.toLocaleLowerCase().trim() === "projects") {
-      router.push("/projects");
+      redirect("/projects");
     } else if (input.toLocaleLowerCase().trim() === "contact") {
-      router.push("/contact");
+      redirect("/contact");
     } else if (input.toLocaleLowerCase().trim() === "clear") {
       ld = [];
     } else if (input) {

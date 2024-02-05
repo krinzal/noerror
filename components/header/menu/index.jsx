@@ -1,3 +1,4 @@
+"use client"
 import { motion } from "framer-motion";
 import { opacity, slideLeft, mountAnim } from "../anim";
 import styles from "./style.module.scss";
