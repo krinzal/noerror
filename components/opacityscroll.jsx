@@ -3,7 +3,7 @@ import { useRef, useEffect } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import gsap from 'gsap';
 
-const phrase = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa odit ipsum repellat ullam, reprehenderit ab dignissimos tempora cupiditate enim alias. Nemo fuga iure, sed consequuntur dolores magnam neque ullam voluptatibus?";
+const phrase = "We are a service that provides a vast variety of Websites and Discord Bots which are developed and nourished by our team along with a few other different projects. Unlike other bot shops, we develop Discord Bots and Websites according to the taste of our customers. You name them and we got it. Customer satisfaction is our main priority.Apart from bot orders, we also provide free open source projects on our YouTube channel.So why not get a bot today? Not to someone else's choice but yours! Not someone else's needs but yours! Get it today! Make your imaginations comes to life with NoError Studios!";
 export default function Home() {
 
 
