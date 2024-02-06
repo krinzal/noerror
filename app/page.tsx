@@ -123,7 +123,6 @@ export default function Home() {
               <Canvas
                 className="p-0"
                 camera={{ position: [0, 10, 0], fov: 35 }}
-                dpr={window.devicePixelRatio}
               >
                 <Center>
                   <Float

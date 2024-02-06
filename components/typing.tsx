@@ -28,9 +28,9 @@ const TerminalController = (props = {}) => {
     let ld = [...lineData];
     ld.push(<TerminalInput>{input}</TerminalInput>);
     if (input.toLocaleLowerCase().trim() === "projects") {
-      router.push("projects")
+      router.push("http://localhost:3000/projects")
     } else if (input.toLocaleLowerCase().trim() === "contact") {
-      router.push("/contact");
+      router.push("http://localhost:3000/contact");
     } else if (input.toLocaleLowerCase().trim() === "clear") {
       ld = [];
     } else if (input) {
