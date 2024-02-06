@@ -4,9 +4,10 @@ import Terminal, {
   TerminalInput,
   TerminalOutput,
 } from "react-terminal-ui";
-import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation'
 
 const TerminalController = (props = {}) => {
+  const router = useRouter()
   const [colorMode, setColorMode] = useState(ColorMode.Dark);
   const [lineData, setLineData] = useState([
     <TerminalOutput>Welcome to the help terminal!&#128075;</TerminalOutput>,
@@ -27,9 +28,9 @@ const TerminalController = (props = {}) => {
     let ld = [...lineData];
     ld.push(<TerminalInput>{input}</TerminalInput>);
     if (input.toLocaleLowerCase().trim() === "projects") {
-      redirect("/projects");
+      router.push("projects")
     } else if (input.toLocaleLowerCase().trim() === "contact") {
-      redirect("/contact");
+      router.push("/contact");
     } else if (input.toLocaleLowerCase().trim() === "clear") {
       ld = [];
     } else if (input) {
@@ -58,8 +59,8 @@ const TerminalController = (props = {}) => {
     btnClasses.push("btn-light");
   }
   return (
-    <div className="container ">
-      <div className="d-flex flex-row-reverse p-2">
+    <div className="container max-h-[5rem]">
+      <div className="d-flex flex-row-reverse p-2 ">
         <button className={btnClasses.join(" ")} onClick={toggleColorMode}>
           {colorMode === ColorMode.Light ? (
             <svg
@@ -95,7 +96,7 @@ const TerminalController = (props = {}) => {
         redBtnCallback={redBtnClick}
         yellowBtnCallback={yellowBtnClick}
         greenBtnCallback={greenBtnClick}
-        height="window.innerheight/1.4"
+        height="15rem"
       >
         {lineData}
       </Terminal>
