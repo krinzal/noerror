@@ -17,6 +17,12 @@ import Terminal from "@/components/typing";
 
 import { TerminalContextProvider } from "react-terminal";
 export default function Home() {
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     const lenis = new Lenis({ duration: 1 });
 

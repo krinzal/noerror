@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from "react";
+import React, { useState, MouseEvent, useEffect } from "react";
 import Terminal, {
   ColorMode,
   TerminalInput,
@@ -6,7 +6,15 @@ import Terminal, {
 } from "react-terminal-ui";
 import { useRouter } from 'next/navigation'
 
+import { gsap } from 'gsap';
+
+
 const TerminalController = (props = {}) => {
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+    tl.to('.terminal', { delay: 2, duration: 0.5, opacity: 1, y: 0 });
+  }, []);
   const router = useRouter()
   const [colorMode, setColorMode] = useState(ColorMode.Dark);
   const [lineData, setLineData] = useState([
@@ -28,9 +36,9 @@ const TerminalController = (props = {}) => {
     let ld = [...lineData];
     ld.push(<TerminalInput>{input}</TerminalInput>);
     if (input.toLocaleLowerCase().trim() === "projects") {
-      router.push("http://localhost:3000/projects")
+      router.push("/projects")
     } else if (input.toLocaleLowerCase().trim() === "contact") {
-      router.push("http://localhost:3000/contact");
+      router.push("/contact");
     } else if (input.toLocaleLowerCase().trim() === "clear") {
       ld = [];
     } else if (input) {
@@ -59,7 +67,8 @@ const TerminalController = (props = {}) => {
     btnClasses.push("btn-light");
   }
   return (
-    <div className="container max-h-[5rem]">
+    <div className="container max-h-[5rem] terminal"   style={{ opacity: 0}} // Initial styles
+    >
       <div className="d-flex flex-row-reverse p-2 ">
         <button className={btnClasses.join(" ")} onClick={toggleColorMode}>
           {colorMode === ColorMode.Light ? (
